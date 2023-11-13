@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="automacoesStyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=MuseoModerno:wght@300&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body style="background-color: rgb(0, 13, 25); color: aliceblue;">
+
+    <!-- Botão para abrir/fechar o menu -->
+    <span class="openbtn" onclick="openNav()">&#9776;</span>
+
+    <!-- Menu lateral -->
+    <div id="mySidenav" class="sidenav">
+        <a href="dashboard.html">Dashboard</a>
+        <a>Automações</a>
+        <a>Sobre</a>
+    </div>
+
+    <!-- Conteúdo principal -->
+    <div style="margin: 30px" class="row" style="color: rgb(0, 13, 25);">
+      <div class="row row-cols-auto" id="pai">
+            
+      </div>
+      <hr>
+      <button style="margin: 20px; display: flex; width: auto;" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Nova Rotina +
+      </button>
+      <!-- Conteudo Modal-->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 style="color: rgb(0, 13, 25)" class="modal-title fs-5" id="exampleModalLabel">Nova Rotina</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div style="color: rgb(0, 13, 25)" class="modal-body">
+                  Se
+                  <div class="btn-group" role="group1" aria-label="group1">
+                      <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+                      <label class="btn btn-outline-primary" for="btnradio1">Temperatura</label>
+                    
+                      <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+                      <label class="btn btn-outline-primary" for="btnradio2">Horario</label>
+                    </div> 
+                    <br>
+                    <br>
+                    Condição
+                    <div style="color: rgb(0, 13, 25)" class="btn-group" role="group2" aria-label="group2">
+                      <input type="radio" class="btn-check" name="btnradio1" id="btnradio3" autocomplete="off" checked>
+                      <label class="btn btn-outline-primary" for="btnradio3">&#60</label>
+                    
+                      <input type="radio" class="btn-check" name="btnradio1" id="btnradio4" autocomplete="off">
+                      <label class="btn btn-outline-primary" for="btnradio4">=</label>
+                    
+                      <input type="radio" class="btn-check" name="btnradio1" id="btnradio5" autocomplete="off">
+                      <label class="btn btn-outline-primary" for="btnradio5">></label>
+                    </div>
+                    <br>
+                    <div>
+                      <br>
+                      <div id="comboBoxDiv">
+                          <select id="comboBox">
+                              <option value="opcao1">Temperatura</option>
+                              <option value="opcao2">Horario</option>
+                              <input id="input-temperatura" type="string"/>
+                              <div class="btn-group" role="group">
+                                  
+                          </select>
+                      </div>
+                      
+                    </div>
+                    <br>
+                    
+                    <div>
+                      
+                          <div class="btn-group1" role="group2" aria-label="group2">
+                              <input type="radio" class="btn-check" name="btnradio2" id="btnradio6" autocomplete="off" checked>
+                              <label class="btn btn-outline-primary" for="btnradio6">Ligado</label>
+                            
+                              <input type="radio" class="btn-check" name="btnradio2" id="btnradio7" autocomplete="off">
+                              <label class="btn btn-outline-primary" for="btnradio7">Desligado</label>
+                            </div> 
+                                  
+                              </select>
+                          </div>
+                    </div>
+                    <br>
+                    <div>
+                          <div id="comboBoxDiv1">
+                              <select id="comboBox1">
+                                  <option value="opcao1">Luz</option>
+                                  <option value="opcao2">Ar Condicionado</option>
+                                  <option value="opcao1">Tomada</option>
+                                  <option value="opcao2">Televisor</option>
+                                  
+                              </select>
+                          </div>
+                    </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Salvar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+          
+    </div>
+    <script>
+      // Se desejar manipular a caixa de seleção com JavaScript, você pode fazer algo como:
+
+      // Obtém a referência para a div e a caixa de seleção
+      var comboBoxDiv = document.getElementById('comboBoxDiv');
+      var comboBox = document.getElementById('comboBox');
+
+      // Adicione um evento para lidar com a seleção
+      comboBox.addEventListener('change', function() {
+          var selectedOption = comboBox.options[comboBox.selectedIndex].value;
+      });
+  </script>
+  <script>
+    // Se desejar manipular a caixa de seleção com JavaScript, você pode fazer algo como:
+
+    // Obtém a referência para a div e a caixa de seleção
+    var comboBoxDiv = document.getElementById('comboBoxDiv1');
+    var comboBox = document.getElementById('comboBox1');
+
+    // Adicione um evento para lidar com a seleção
+    comboBox.addEventListener('change', function() {
+        var selectedOption = comboBox.options[comboBox.selectedIndex].value;
+    });
+</script>
+    <script src="routines.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>

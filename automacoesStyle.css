@@ -1,0 +1,76 @@
+/* Estilos para o menu lateral */
+.sidenav {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: -250px;
+    background-color: #002537;
+    padding-top: 60px;
+    transition: 0.3s;
+}
+.col {
+    margin-bottom: 20px;
+}
+
+.sidenav a {
+    padding: 15px 25px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
+    color: #ffffff;
+    display: block;
+    transition: 0.2s;
+}
+
+.sidenav a:hover {
+    background-color: #007997;
+}
+
+/* Estilos para o conteúdo principal */
+.content {
+    margin-left: 0;
+    padding: 15px;
+    transition: margin-left 0.3s;
+}
+
+/* Estilos para o botão de abrir/fechar o menu */
+.openbtn {
+    font-size: 30px;
+    cursor: pointer;
+    position: fixed;
+    z-index: 2;
+    left: 10px;
+    top: 10px;
+}
+
+.on-off-btn {
+    margin: 60px;
+    border-radius: 10px;
+    width: 200px; /* Defina a largura desejada */
+    height: 200px; /* Defina a mesma altura que a largura para criar um botão quadrado */
+    background-color: #007997; /* Cor de fundo do botão */
+    color: #fff; /* Cor do texto */
+    border: none; /* Remove a borda padrão do botão */
+    text-align: center; /* Centraliza o texto horizontalmente */
+    text-decoration: none; /* Remove a decoração de texto */
+    font-family: 'MuseoModerno';
+    display: inline-block;
+    font-size: 25px; /* Tamanho da fonte */
+    cursor: pointer; /* Mostra o cursor como um ponteiro ao passar o mouse sobre o botão */
+}
+
+.on-off-btn:hover {
+    background-color: #2980b9; /* Cor de fundo quando o botão é hover (passar o mouse por cima) */
+}
+body{
+    padding: 1rem;
+}
+h1{
+    margin-bottom: 1rem;
+}
+button{
+    padding: .6rem 1.2rem;
+    background-color: rgb(0, 13, 25);
+}
