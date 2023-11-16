@@ -107,3 +107,17 @@ input::-webkit-inner-spin-button {
     left: 50%;
     top: 50%;
 }
+.button-container {
+    text-align: center;
+    margin-top: 20px; /* Ajuste opcional para espaçamento superior */
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.button {
+    /* Estilos adicionais para os botões, se necessário */
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-left: 10px;
+    margin-right: 10px;
+}

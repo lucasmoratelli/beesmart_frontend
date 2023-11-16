@@ -33,83 +33,47 @@
       </button>
       <!-- Conteudo Modal-->
       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h1 style="color: rgb(0, 13, 25)" class="modal-title fs-5" id="exampleModalLabel">Nova Rotina</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 style="color: rgb(0, 13, 25)" class="modal-title fs-5" id="exampleModalLabel">Nova Rotina</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+              <title>Botões Centralizados</title>
+              <style>
+                  .button-container {
+                      text-align: center;
+                      margin-top: 20px; /* Ajuste opcional para espaçamento superior */
+                      margin-inline: 20px;
+                      margin-left: 20px;
+                      margin-right: 20px;
+                  }
+
+                  .button {
+                      /* Estilos adicionais para os botões, se necessário */
+                      padding: 10px 20px;
+                      font-size: 16px;
+                      margin-left: 10px;
+                      margin-right: 10px;
+                  }
+              </style>
+                </head>
+                <body>
+
+              <!-- Container para centralizar os botões -->
+              <div class="button-container">
+                  <!-- Botões -->
+                  <button style="color: rgb(0, 0, 0); background-color: rgb(148, 148, 148);width: 200px; height: 200px; margin-left: 10px; margin-right: 10px;" class="button">Interruptor</button>
+                <button style="color: rgb(0, 0, 0); background-color: rgb(148, 148, 148); width: 200px; height: 200px; margin-left: 10px; margin-right: 10px" class="button">Horario</button>
               </div>
-              <div style="color: rgb(0, 13, 25)" class="modal-body">
-                  Se
-                  <div class="btn-group" role="group1" aria-label="group1">
-                      <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
-                      <label class="btn btn-outline-primary" for="btnradio1">Temperatura</label>
-                    
-                      <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                      <label class="btn btn-outline-primary" for="btnradio2">Horario</label>
-                    </div> 
-                    <br>
-                    <br>
-                    Condição
-                    <div style="color: rgb(0, 13, 25)" class="btn-group" role="group2" aria-label="group2">
-                      <input type="radio" class="btn-check" name="btnradio1" id="btnradio3" autocomplete="off" checked>
-                      <label class="btn btn-outline-primary" for="btnradio3">&#60</label>
-                    
-                      <input type="radio" class="btn-check" name="btnradio1" id="btnradio4" autocomplete="off">
-                      <label class="btn btn-outline-primary" for="btnradio4">=</label>
-                    
-                      <input type="radio" class="btn-check" name="btnradio1" id="btnradio5" autocomplete="off">
-                      <label class="btn btn-outline-primary" for="btnradio5">></label>
-                    </div>
-                    <br>
-                    <div>
-                      <br>
-                      <div id="comboBoxDiv">
-                          <select id="comboBox">
-                              <option value="opcao1">Temperatura</option>
-                              <option value="opcao2">Horario</option>
-                              <input id="input-temperatura" type="string"/>
-                              <div class="btn-group" role="group">
-                                  
-                          </select>
-                      </div>
-                      
-                    </div>
-                    <br>
-                    
-                    <div>
-                      
-                          <div class="btn-group1" role="group2" aria-label="group2">
-                              <input type="radio" class="btn-check" name="btnradio2" id="btnradio6" autocomplete="off" checked>
-                              <label class="btn btn-outline-primary" for="btnradio6">Ligado</label>
-                            
-                              <input type="radio" class="btn-check" name="btnradio2" id="btnradio7" autocomplete="off">
-                              <label class="btn btn-outline-primary" for="btnradio7">Desligado</label>
-                            </div> 
-                                  
-                              </select>
-                          </div>
-                    </div>
-                    <br>
-                    <div>
-                          <div id="comboBoxDiv1">
-                              <select id="comboBox1">
-                                  <option value="opcao1">Luz</option>
-                                  <option value="opcao2">Ar Condicionado</option>
-                                  <option value="opcao1">Tomada</option>
-                                  <option value="opcao2">Televisor</option>
-                                  
-                              </select>
-                          </div>
-                    </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Salvar</button>
-              </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+              <button type="button" class="btn btn-primary">Salvar</button>
             </div>
           </div>
         </div>
+      </div>
           
     </div>
     <script>
