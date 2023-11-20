@@ -39,8 +39,6 @@
               <h1 style="color: rgb(0, 13, 25)" class="modal-title fs-5" id="exampleModalLabel">Nova Rotina</h1>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-
-              <title>Botões Centralizados</title>
               <style>
                   .button-container {
                       text-align: center;
@@ -48,6 +46,7 @@
                       margin-inline: 20px;
                       margin-left: 20px;
                       margin-right: 20px;
+                      margin-bottom: 20px;
                   }
 
                   .button {
@@ -64,12 +63,71 @@
               <!-- Container para centralizar os botões -->
               <div class="button-container">
                   <!-- Botões -->
-                  <button style="color: rgb(0, 0, 0); background-color: rgb(148, 148, 148);width: 200px; height: 200px; margin-left: 10px; margin-right: 10px;" class="button">Interruptor</button>
-                <button style="color: rgb(0, 0, 0); background-color: rgb(148, 148, 148); width: 200px; height: 200px; margin-left: 10px; margin-right: 10px" class="button">Horario</button>
+                  <button style="color: rgb(0, 0, 0); background-color: rgb(148, 148, 148);width: 200px; height: 200px; margin-left: 10px; margin-right: 10px;" class="button" data-bs-dismiss="modal"  data-bs-toggle="modal" data-bs-target="#modal1">Ao Pressionar Interruptor</button>
+                <button style="color: rgb(0, 0, 0); background-color: rgb(148, 148, 148); width: 200px; height: 200px; margin-left: 10px; margin-right: 10px"  class="button" data-bs-dismiss="modal"  data-bs-toggle="modal" data-bs-target="#modal2">Quando Chegar Certo Horario</button>
               </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
               <button type="button" class="btn btn-primary">Salvar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div  class="modal fade" id="modal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div style="background-color: #002537" class="modal-header">
+              <h1 style="color: rgb(255, 255, 255)" class="modal-title fs-5" id="exampleModalLabel">Ao Pressionar Interruptor</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <style>
+              .modal-body {
+                  text-align: center;
+                  margin-top: 20px; /* Ajuste opcional para espaçamento superior */
+                  margin-block: 20px;
+                
+              }
+          </style>
+            </head>
+            <body>
+            <div class="modal-body">
+              <select>
+                <option value="opcao1">Opção 1</option>
+                <option value="opcao2">Opção 2</option>
+                <option value="opcao3">Opção 3</option>
+                <option value="opcao4">Opção 4</option>
+                <option value="opcao5">Opção 5</option>
+                <option value="opcao6">Opção 6</option>
+              </select>
+              <select>
+                <option value="opcao7">Opção 1</option>
+                <option value="opcao8">Opção 2</option>
+                <option value="opcao9">Opção 3</option>
+                <option value="opcao10">Opção 4</option>
+                <option value="opcao11">Opção 5</option>
+                <option value="opcao12">Opção 6</option>
+              </select>
+            </div>
+            <div style="background-color: #002537" class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+              <button type="button" class="btn btn-primary">Salvar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="modal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 style="color: rgb(0, 13, 25)" class="modal-title fs-5" id="exampleModalLabel">Quando Chegar Certo Horario</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <p>Modal body text goes here.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
             </div>
           </div>
         </div>
