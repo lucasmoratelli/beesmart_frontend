@@ -21,7 +21,7 @@
         <a>Automações</a>
         <a>Sobre</a>
     </div>
-
+    <!--style="width: 18rem; color: white; background-color: #005064"-->
     <!-- Conteúdo principal -->
     <div style="margin: 30px" class="row" style="color: rgb(0, 13, 25);">
       <div class="row row-cols-auto" id="pai">
@@ -34,38 +34,56 @@
       <!-- Conteudo Modal-->
       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1 style="color: rgb(0, 13, 25)" class="modal-title fs-5" id="exampleModalLabel">Nova Rotina</h1>
+          <div style="color: white; background-color: #005064" class="modal-content">
+            <div style="color: white; background-color: #005064" class="modal-header">
+              <h1 style="color: rgb(248, 248, 248)" class="modal-title fs-5" id="exampleModalLabel">Nova Rotina</h1>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
               <style>
                   .button-container {
                       text-align: center;
-                      margin-top: 20px; /* Ajuste opcional para espaçamento superior */
-                      margin-inline: 20px;
+                      margin-top: 50px; /* Ajuste opcional para espaçamento superior */
                       margin-left: 20px;
-                      margin-right: 20px;
+                      margin-right: 60px;
                       margin-bottom: 20px;
                   }
-
-                  .button {
-                      /* Estilos adicionais para os botões, se necessário */
-                      padding: 10px 20px;
+                  .card{
+                      text-align: center;
                       font-size: 16px;
-                      margin-left: 10px;
-                      margin-right: 10px;
+                      margin-left: 20px;
+                      margin-right: 20px;
+                      margin-bottom: 20px;            
+                  }
+                  .container{
+                    font-size: 16px;
+                    
+                  }
+                  .form-control{
+                    text-align: center;
+                    font-size: 16px;
+                    margin-top: 10px;
+                    width: 90%;            
                   }
               </style>
-                </head>
-                <body>
-
-              <!-- Container para centralizar os botões -->
-              <div class="button-container">
-                  <!-- Botões -->
-                  <button style="color: rgb(0, 0, 0); background-color: rgb(148, 148, 148);width: 200px; height: 200px; margin-left: 10px; margin-right: 10px;" class="button" data-bs-dismiss="modal"  data-bs-toggle="modal" data-bs-target="#modal1">Ao Pressionar Interruptor</button>
-                <button style="color: rgb(0, 0, 0); background-color: rgb(148, 148, 148); width: 200px; height: 200px; margin-left: 10px; margin-right: 10px"  class="button" data-bs-dismiss="modal"  data-bs-toggle="modal" data-bs-target="#modal2">Quando Chegar Certo Horario</button>
+              <div class="modal-body">
+                <div class="container">
+                  <div class="row justify-content-md-center">
+                    <div class="col-md-6">
+                      <!-- Botão 1 -->
+                      <button type="button" class="btn btn-secondary btn-lg" data-bs-toggle="modal" data-bs-target="#modal1">
+                        Ao Pressionar Interruptor
+                      </button>
+                    </div>
+                    <div class="col-md-6">
+                      <!-- Botão 2 -->
+                      <button type="button" class="btn btn-secondary btn-lg" data-bs-toggle="modal" data-bs-target="#modal2">
+                        Quando Chegar Certo Horario
+                      </button>
+                    </div>
+                  </div>
+                </div>
               </div>
+             
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
               <button type="button" class="btn btn-primary">Salvar</button>
@@ -74,41 +92,42 @@
         </div>
       </div>
       <div  class="modal fade" id="modal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div style="background-color: #002537" class="modal-header">
+        <div style="color: white; background-color: #005064" class="modal-dialog">
+          <div style="color: white; background-color: #005064" class="modal-content">
+            <div style="color: white; background-color: #005064" class="modal-header">
               <h1 style="color: rgb(255, 255, 255)" class="modal-title fs-5" id="exampleModalLabel">Ao Pressionar Interruptor</h1>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <style>
-              .modal-body {
-                  text-align: center;
-                  margin-top: 20px; /* Ajuste opcional para espaçamento superior */
-                  margin-block: 20px;
-                
-              }
-          </style>
-            </head>
-            <body>
             <div class="modal-body">
-              <select>
-                <option value="opcao1">Opção 1</option>
-                <option value="opcao2">Opção 2</option>
-                <option value="opcao3">Opção 3</option>
-                <option value="opcao4">Opção 4</option>
-                <option value="opcao5">Opção 5</option>
-                <option value="opcao6">Opção 6</option>
-              </select>
-              <select>
-                <option value="opcao7">Opção 1</option>
-                <option value="opcao8">Opção 2</option>
-                <option value="opcao9">Opção 3</option>
-                <option value="opcao10">Opção 4</option>
-                <option value="opcao11">Opção 5</option>
-                <option value="opcao12">Opção 6</option>
-              </select>
-            </div>
-            <div style="background-color: #002537" class="modal-footer">
+              <div class="container">
+                <div class="row">
+                  <div class="col">
+                    <label style="margin-top: 10px;" for="sensorSelect">Selecione o Sensor:</label>
+                    <select class="form-control btn-lg" id="sensorSelect">
+                      <option value="opcao1">Sensor ID 1</option>
+                      <option value="opcao2">Sensor ID 2</option>
+                      <option value="opcao3">Sensor ID 3</option>
+                      <option value="opcao4">Sensor ID 4</option>
+                      <option value="opcao5">Sensor ID 5</option>
+                      <option value="opcao6">Sensor ID 6</option>
+                    </select>
+                  </div>
+              
+                  <div class="col">
+                    <label style="margin-top: 10px;" for="lightSelect">Selecione o Dispostivo:</label>
+                    <select class="form-control btn-lg" id="lightSelect">
+                      <option value="opcao7">Luz Sala</option>
+                      <option value="opcao8">Luz Quarto</option>
+                      <option value="opcao9">Luz Cozinha</option>
+                      <option value="opcao10">Led Painel</option>
+                      <option value="opcao11">Led RGB Computador </option>
+                      <option value="opcao12">Luz Sacada</option>
+                    </select>
+                  </div>
+                </div>
+              </div>   
+            </div>     
+            <div style="color: white; background-color: #005064" class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
               <button type="button" class="btn btn-primary">Salvar</button>
             </div>
@@ -117,17 +136,41 @@
       </div>
       <div class="modal fade" id="modal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1 style="color: rgb(0, 13, 25)" class="modal-title fs-5" id="exampleModalLabel">Quando Chegar Certo Horario</h1>
+          <div style="color: white; background-color: #005064" class="modal-content">
+            <div style="color: white; background-color: #005064" class="modal-header">
+              <h1  class="modal-title fs-5" id="exampleModalLabel">Quando Chegar Certo Horario</h1>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              <p>Modal body text goes here.</p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
+              <div  class="form-row">
+                <div  class="form-group col-md-4">
+                  <label for="horario">Horário:</label>
+                  <input type="time" class="form-control btn-sm" id="horario" name="horario">
+                </div>
+            
+                <div  class="form-group col-md-4">
+                  <label  for="selectLuz">Selecione o Dispostivo:</label>
+                  <select style="width:200px;height:40px" class="form-control btn-sm" id="selectDispositivo">
+                    <option  value="opcao13">Luz Sala</option>
+                    <option value="opcao14">Luz Quarto</option>
+                    <option value="opcao15">Luz Cozinha</option>
+                    <option value="opcao16">Led Painel</option>
+                    <option value="opcao17">Led RGB Computador</option>
+                    <option value="opcao18">Luz Sacada</option>
+                  </select>
+                </div>
+            
+                <div class="form-group col-md-4">
+                  <label for="selectAcao">Selecione a Ação:</label>
+                  <select class="form-control" id="selectAcao">
+                    <option value="opcao7">Ligar</option>
+                    <option value="opcao8">Desligar</option>
+                  </select>
+                </div>
+              </div>
+            <div style="color: white; background-color: #005064" class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+              <button type="button" class="btn btn-primary">Salvar</button>
             </div>
           </div>
         </div>
