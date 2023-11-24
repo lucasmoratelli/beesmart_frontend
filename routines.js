@@ -89,3 +89,20 @@ getRotinas().then(rotinas => rotinas.forEach(Rotina => {
     div.innerHTML += deviceHtml;
     
 }));
+document.addEventListener('DOMContentLoaded', function () {
+    //seleciona o botao proximo pelo id
+    var botaoProximo = document.querySelector('.modal-footer .btn-primary');
+    //seleciona o botao pelo id    
+    botaoProximo.addEventListener('click', function () {
+        //campo texto id
+        var nomeRotinaInput = document.getElementById('exampleTextBox');
+
+        // valor campo de texto
+        var nomeRotina = nomeRotinaInput.value;
+
+        //imprimindo no console
+        console.log('Valor da Rotina:', nomeRotina);
+    });
+});
+
+
