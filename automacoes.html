@@ -15,6 +15,12 @@
     <!-- Botão para abrir/fechar o menu -->
     <span class="openbtn" onclick="openNav()">&#9776;</span>
 
+    <div id="fundo" class="overlay"></div>
+        <div id="spinner" class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+
     <!-- Menu lateral -->
     <div id="mySidenav" class="sidenav">
         <a href="dashboard.html">Dashboard</a>
@@ -30,6 +36,28 @@
       <button style="margin: 20px; display: flex; width: auto;" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal3">
           Nova Rotina +
       </button>
+      <!-- Modal de Confirmação de Exclusão -->
+      <div class="modal fade" id="confirmacaoExclusaoModal" tabindex="-1" aria-labelledby="confirmacaoExclusaoModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div style="color: white; background-color: #005064" class="modal-content">
+            <div style="color: white; background-color: #005064" class="modal-header">
+              <h5 class="modal-title" id="confirmacaoExclusaoModalLabel">Confirmação de Exclusão</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+            </div>
+            <div class="modal-body">
+              Tem certeza de que deseja excluir esta rotina?
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+
+              <button type="button" class="btn btn-danger" data-bs-toggle="modal" onclick='deleteRotina()' data-bs-target="#confirmacaoExclusaoModal">Excluir</button>
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- Conteudo Modal-->
       <div  class="modal fade" id="modal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -52,7 +80,7 @@
             </div>     
             <div style="color: white; background-color: #005064" class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" >Proximo</button>
+              <button id="btnNomeProximo" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" >Proximo</button>
             </div>
           </div>
         </div>
@@ -104,23 +132,19 @@
                   <div class="col">
                     <label style="margin-top: 10px; margin-left: 10px;" for="sensorSelect">Selecione o Sensor:</label>
                     <select class="form-control btn-lg" id="sensorSelect">
-                      <option value="opcao1">Sensor ID 1</option>
-                      <option value="opcao2">Sensor ID 2</option>
-                      <option value="opcao3">Sensor ID 3</option>
-                      <option value="opcao4">Sensor ID 4</option>
-                      <option value="opcao5">Sensor ID 5</option>
-                      <option value="opcao6">Sensor ID 6</option>
+                      <option value=5>Interruptor 1</option>
+                      <option value=6>Interruptor 2</option>
+                      <option value=7>Interruptor 3</option>
+                      <option value=8>Interruptor 4</option>
                     </select>
                   </div>
                   <div class="col">
                     <label style="margin-top: 10px; margin-right: 10px;" for="lightSelect">Selecione o Dispostivo:</label>
                     <select class="form-control btn-lg" id="lightSelect">
-                      <option value="opcao7">Luz Sala</option>
-                      <option value="opcao8">Luz Quarto</option>
-                      <option value="opcao9">Luz Cozinha</option>
-                      <option value="opcao10">Led Painel</option>
-                      <option value="opcao11">Led RGB Computador </option>
-                      <option value="opcao12">Luz Sacada</option>
+                      <option value=1>Luz 1</option>
+                      <option value=2>Luz 2</option>
+                      <option value=3>Luz 3</option>
+                      <option value=4>Tomada 1</option>
                     </select>
                   </div>
                 </div>
@@ -129,7 +153,7 @@
             <div style="color: white; background-color: #005064" class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
               <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal" >Voltar</button>
-              <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Salvar</button>
+              <button onclick="salvarSensorAtuador()" type="button" class="btn btn-primary" data-bs-dismiss="modal">Salvar</button>
             </div>
           </div>
         </div>
@@ -147,30 +171,28 @@
                 <div class="row">
                   <div class="col">
                     <label style="margin-left: 7px;"  for="horario">Horário:</label>
-                    <input style="width:100px;height:40px" type="time" class="form-control btn-sm" id="horario" name="horario">
+                    <input style="width:100px;height:40px" type="time" class="form-control btn-sm" id="selectHorario" name="horario" value="00:00">
                   </div>
                   <div class="col">
                     <label  for="selectLuz">Dispostivo:</label>
                     <select style="width:180px;height:40px" class="form-control btn-sm" id="selectDispositivo">
-                      <option  value="opcao13">Luz Sala</option>
-                      <option value="opcao14">Luz Quarto</option>
-                      <option value="opcao15">Luz Cozinha</option>
-                      <option value="opcao16">Led Painel</option>
-                      <option value="opcao17">Led RGB Computador</option>
-                      <option value="opcao18">Luz Sacada</option>
+                      <option value=1>Luz 1</option>
+                      <option value=2>Luz 2</option>
+                      <option value=3>Luz 3</option>
+                      <option value=4>Tomada 1</option>
                     </select>
                   </div>
                   <div class="col">
                     <label for="selectAcao">Ação:</label>
                     <select style="width:100px;height:40px" class="form-control" id="selectAcao">
-                      <option value="opcao7">Ligar</option>
-                      <option value="opcao8">Desligar</option>
+                      <option value=1>Ligar</option>
+                      <option value=0>Desligar</option>
                     </select>
                   </div>
                   <div style="color: white; background-color: #005064" class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                     <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal" >Voltar</button>
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Salvar</button>
+                    <button id="salvarRotinaHorario" type="button" class="btn btn-primary" data-bs-dismiss="modal">Salvar</button>
                   </div>
                 </div>
               </div>  
@@ -220,34 +242,6 @@
         
       }
   </style>
-    <script>
-    let type;
-
-    function aoPressionarInterruptor() {
-        type = 1;
-        console.log('Valor da variavel type:', type);
-    }
-    document.querySelector('.btn-secondary[data-bs-target="#modal1"]').addEventListener('click', aoPressionarInterruptor);
-    
-    function quandoChegarCertoHorario() {
-        type = 0;
-        console.log('Valor da variavel type:', type);
-    }
-    document.querySelector('.btn-secondary[data-bs-target="#modal2"]').addEventListener('click', quandoChegarCertoHorario);
-
-    </script>
-
-    <script>
-      // Obtém a referência para a div e a caixa de seleção
-      var comboBoxDiv = document.getElementById('comboBoxDiv');
-      var comboBox = document.getElementById('comboBox');
-  </script>
-  
-  <script>
-    // Obtém a referência para a div e a caixa de seleção
-    var comboBoxDiv = document.getElementById('comboBoxDiv1');
-    var comboBox = document.getElementById('comboBox1');
-</script>
     <script src="routines.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
