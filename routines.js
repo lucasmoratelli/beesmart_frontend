@@ -225,5 +225,62 @@ document.addEventListener('DOMContentLoaded', function () {
       acao = document.getElementById("selectAcao").value;
       console.log("Ação selecionada:", acao);
     });
+    
+    document.addEventListener('DOMContentLoaded', function () {
+        var inputNomeRotina = document.getElementById('exampleTextBox');
+        var btnProximo = document.getElementById('btnNomeProximo');
+    
+        // Adiciona um ouvinte de eventos de entrada para o campo de texto
+        inputNomeRotina.addEventListener('input', function () {
+          // Verifica se o valor do campo de texto está vazio
+          if (inputNomeRotina.value.trim() !== '') {
+            // Se não estiver vazio, habilita o botão "Próximo"
+            btnProximo.disabled = false;
+          } else {
+            // Se estiver vazio, desabilita o botão "Próximo"
+            btnProximo.disabled = true;
+          }
+        });
+    });
+    document.getElementById('selectHorario').addEventListener('change', function() {
+        var horarioSelecionado = this.value;
+        var salvarBotao = document.getElementById('salvarRotinaHorario');
+
+        if (horarioSelecionado !== '') {
+            salvarBotao.removeAttribute('disabled');
+        } else {
+            salvarBotao.setAttribute('disabled', 'true');
+        }
+    });  
+    document.getElementById('salvarRotinaHorario').addEventListener('click', function() {
+        // Lógica para salvar os dados (se necessário)
+        // ...
+    });
+
+    document.querySelector('#modal2 .btn-secondary[data-bs-dismiss="modal"]').addEventListener('click', function() {
+        // Resetando os campos ao clicar em "Cancelar"
+        document.getElementById('selectHorario').value = '00:00';
+        document.getElementById('selectDispositivo').selectedIndex = 0;
+        document.getElementById('selectAcao').selectedIndex = 0;
+    });
+    
+    function resetarCampos() {
+        // Resetar campos do modal1
+        document.getElementById('sensorSelect').selectedIndex = 0;
+        document.getElementById('lightSelect').selectedIndex = 0;
+    
+        // Resetar campos do modal2
+        document.getElementById('selectHorario').value = '00:00';
+        document.getElementById('selectDispositivo').selectedIndex = 0;
+        document.getElementById('selectAcao').selectedIndex = 0;
+    
+        // Resetar campo do modal3
+        document.getElementById('exampleTextBox').value = '';
+      }
+    
+      // Associar a função aos botões "Cancelar" dos modais
+      document.querySelectorAll('.modal .btn-secondary[data-bs-dismiss="modal"]').forEach(function (btn) {
+        btn.addEventListener('click', resetarCampos);
+      });
 
 
