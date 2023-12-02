@@ -25,7 +25,7 @@
     <div id="mySidenav" class="sidenav">
         <a href="dashboard.html">Dashboard</a>
         <a>Automações</a>
-        <a>Sobre</a>
+        <a href="sobre.html">Sobre</a>
     </div>
     <!-- Conteúdo principal onde exibe as rotinas -->
     <div style="margin: 30px" class="row" style="color: rgb(0, 13, 25);">
@@ -51,14 +51,14 @@
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
 
               <button type="button" class="btn btn-danger" data-bs-toggle="modal" onclick='deleteRotina()' data-bs-target="#confirmacaoExclusaoModal">Excluir</button>
-
+              
               
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Conteudo Modal-->
+      <!-- Conteudo Modal Informe o Nome Da Rotina-->
       <div  class="modal fade" id="modal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div style="color: white; background-color: #005064" class="modal-content">
@@ -85,7 +85,7 @@
           </div>
         </div>
       </div>
-      <!-- Conteudo Modal-->
+      <!-- Conteudo Modal Ao Pressionar Interruptor/Quando Chegar Certo Horario-->
       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div style="color: white; background-color: #005064" class="modal-content">
@@ -118,7 +118,7 @@
           </div>
         </div>
       </div>
-      <!-- Conteudo Modal-->
+      <!-- Conteudo Modal Ao Pressionar Interruptor-->
       <div  class="modal fade" id="modal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div style="color: white; background-color: #005064" class="modal-content">
@@ -158,7 +158,7 @@
           </div>
         </div>
       </div>
-      <!-- Conteudo Modal-->
+      <!-- Conteudo Modal Quando Chegar Certo Horario-->
       <div class="modal fade" id="modal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div style="color: white; background-color: #005064" class="modal-content">
@@ -171,7 +171,7 @@
                 <div class="row">
                   <div class="col">
                     <label style="margin-left: 7px;"  for="horario">Horário:</label>
-                    <input style="width:100px;height:40px" type="time" class="form-control btn-sm" id="selectHorario" name="horario" value="00:00">
+                    <input style="width:100px;height:40px" type="time" class="form-control btn-sm" id="selectHorario" name="horario">
                   </div>
                   <div class="col">
                     <label  for="selectLuz">Dispostivo:</label>
@@ -189,59 +189,18 @@
                       <option value=0>Desligar</option>
                     </select>
                   </div>
-                  <div style="color: white; background-color: #005064" class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal" >Voltar</button>
-                    <button id="salvarRotinaHorario" type="button" class="btn btn-primary" data-bs-dismiss="modal" disabled>Salvar</button>
-                  </div>
-                </div>
-              </div>  
+                </div>               
+              </div> 
+            </div>
+            <div style="color: white; background-color: #005064" class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+              <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal" >Voltar</button>
+              <button id="salvarRotinaHorario" type="button" class="btn btn-primary" data-bs-dismiss="modal" disabled>Salvar</button>
             </div>
           </div>
         </div>  
       </div>     
     </div>
-    <style>
-      .button-container {
-          text-align: center;
-          margin-top: 50px; /* Ajuste opcional para espaçamento superior */
-          margin-left: 20px;
-          margin-right: 60px;
-          margin-bottom: 20px;
-      }
-      .card{
-          text-align: center;
-          font-size: 16px;
-          margin-left: 20px;
-          margin-right: 20px;
-          margin-bottom: 20px;            
-      }
-      .container{
-        font-size: 16px;
-        
-      }
-      .form-control{
-        text-align: center;
-        font-size: 16px;
-        margin-top: 10px;
-        width: 90%;            
-      }
-      #sensorSelect{
-        margin-left: 10px;
-      }
-      #lightSelec{
-        margin-right: 10px;
-      }
-      #exampleTextBox{
-        margin-left: 20px;
-      }
-      #horario{
-        margin-left: 7px;
-      }
-      #selectAcao{
-        
-      }
-  </style>
     <script src="routines.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>

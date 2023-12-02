@@ -56,8 +56,10 @@ async function deleteRotina() {
     if (node.parentNode) {
     node.parentNode.removeChild(node);
     }
-
+    alert("Item excluído com sucesso!");
     return rotinaId;
+    
+    
 
 }
 
@@ -71,7 +73,7 @@ async function postRotina(type, dispositivo,horario,sensor,acao,nome) {
         body: JSON.stringify({
             type: type,
             name: nome,
-            time: horario+":00",
+            time: horario,
             action: acao,
             sensor: sensor,
             actuator: dispositivo
@@ -79,6 +81,7 @@ async function postRotina(type, dispositivo,horario,sensor,acao,nome) {
       });   
     let pessoa = await response.json();
     location.reload();
+    alert("Rotina salva com sucesso!");
     return pessoa;
 } 
 
@@ -195,7 +198,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function confirmarExclusao(id) {
       idRotinaASerExcluida = id;
-        console.log('Valor do id', idRotinaASerExcluida);
+        console.log('Valor do id', idRotinaASerExcluida); 
     }
   
     document.querySelector('.btn-secondary[data-bs-target="#modal2"]').addEventListener('click', quandoChegarCertoHorario);
@@ -263,24 +266,39 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('selectDispositivo').selectedIndex = 0;
         document.getElementById('selectAcao').selectedIndex = 0;
     });
-    
+    document.querySelector('#exampleModal .btn-secondary[data-bs-dismiss="modal"]').addEventListener('click', function() {
+        // Resetando os campos ao clicar em "Cancelar" no segundo modal
+        // Adicione lógica para resetar os campos conforme necessário
+    });
+    document.querySelector('#modal3 .btn-secondary[data-bs-dismiss="modal"]').addEventListener('click', function() {
+        // Resetando o campo de texto ao clicar em "Cancelar" no terceiro modal
+        document.getElementById('exampleTextBox').value = '';
+    });
     function resetarCampos() {
-        // Resetar campos do modal1
+        // Resetar campos do ao pressionar interruptor
         document.getElementById('sensorSelect').selectedIndex = 0;
         document.getElementById('lightSelect').selectedIndex = 0;
     
-        // Resetar campos do modal2
-        document.getElementById('selectHorario').value = '00:00';
+        // Resetar campos do quando chegar certo horario
+        document.getElementById('selectHorario').value = null;
+        document.getElementById('salvarRotinaHorario').disabled = true;
         document.getElementById('selectDispositivo').selectedIndex = 0;
         document.getElementById('selectAcao').selectedIndex = 0;
+        
     
-        // Resetar campo do modal3
-        document.getElementById('exampleTextBox').value = '';
-      }
+        // Resetar campo modal informe o nome da rotina
+        document.getElementById('exampleTextBox').value = null;
+        document.getElementById('btnNomeProximo').disabled = true;
+        
+        
+    }
     
       // Associar a função aos botões "Cancelar" dos modais
-      document.querySelectorAll('.modal .btn-secondary[data-bs-dismiss="modal"]').forEach(function (btn) {
-        btn.addEventListener('click', resetarCampos);
-      });
+    document.querySelectorAll('.modal .btn-secondary[data-bs-dismiss="modal"]').forEach(function (btn) {
+    btn.addEventListener('click', resetarCampos);
+    });
+
+    
+    
 
 
