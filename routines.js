@@ -98,11 +98,11 @@ getRotinas().then(rotinas => rotinas.forEach(Rotina => {
     let textoActuator;
     //define se a rotina sera criada por temperatura ou Horario
     if(Rotina.type === 0){
-        textoSe = "Quando chegar Certo Horario";
+        textoSe = "Horario";
         textoHorario = Rotina.time;
 
     }else if(Rotina.type === 1){
-        textoSe = "Ao Pressionar Interruptor";
+        textoSe = "Interruptor";
         textoHorario = "-";
         textoAcao = "Trocar status";
     }
@@ -119,25 +119,25 @@ getRotinas().then(rotinas => rotinas.forEach(Rotina => {
 
     }else{
         if(Rotina.sensorId === 5){
-            textoSensor = "Interruptor 1";
+            textoSensor = "Interruptor da sala";
         }else if(Rotina.sensorId === 6){
-            textoSensor = "Interruptor 2";
+            textoSensor = "Interruptor da cozinha";
         }else if(Rotina.sensorId === 7){
-            textoSensor = "Interruptor 3";
+            textoSensor = "Interruptor da suite master";
         }else if(Rotina.sensorId === 8){
-            textoSensor = "Interruptor 4";
+            textoSensor = "Interruptor da hidromassagem";
         }
     }
 
 
     if(Rotina.actuatorId === 1){
-        textoActuator = "Luz 1";
+        textoActuator = "Luzes da sala";
     }else if(Rotina.actuatorId === 2){
-        textoActuator = "Luz 2";
+        textoActuator = "Luz da cozinha";
     }else if(Rotina.actuatorId === 3){
-        textoActuator = "Luz 3";
+        textoActuator = "Luz da suite master";
     }else if(Rotina.actuatorId === 4){
-        textoActuator = "Tomada 1";
+        textoActuator = "Tomada da hidromassagem";
     }
     const deviceHtml = "<div class='col' id='card" + Rotina.id + "'><div class='card' style='width: 18rem; color: white; background-color: #005064'><div class='card-body'><h5 class='card-title'>" + Rotina.name + "</h5><h6 class='card-subtitle'>" + textoSe + "</h6><hr><p class='card-text'> Sensor: <strong>" + textoSensor + "</strong></p><p class='card-text'> Atuador: <strong>" + textoActuator + "</strong></p><p class='card-text'>Horário de atuação: " + textoHorario + "</p> Ação: <strong>" + textoAcao + "</strong></p><button type='button' class='btn btn-danger' data-bs-dismiss='modal' onclick='confirmarExclusao(" + Rotina.id + ") ' data-bs-toggle='modal' data-bs-target='#confirmacaoExclusaoModal'>Excluir</button></div></div></div>";
 
