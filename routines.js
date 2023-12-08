@@ -101,19 +101,21 @@ getRotinas().then(rotinas => rotinas.forEach(Rotina => {
         textoSe = "Horario";
         textoHorario = Rotina.time;
 
+        if(Rotina.action === 1){
+            textoAcao = "Ligar";
+    
+        }else if(Rotina.action === 0){
+            textoAcao = "Desligar";
+        }
+    
+
     }else if(Rotina.type === 1){
         textoSe = "Interruptor";
         textoHorario = "-";
         textoAcao = "Trocar status";
     }
     //Rotina ligada e desligada
-    if(Rotina.action === 1){
-        textoAcao = "Ligar";
-
-    }else if(Rotina.action === 0){
-        textoAcao = "Desligar";
-    }
-
+   
     if(Rotina.type === 0){
         textoSensor = "-"
 
